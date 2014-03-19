@@ -1,0 +1,23 @@
+html {
+  height: 100%; }
+
+body {
+  background-color: #696;
+  height: 100%;
+  min-height: 100%; }
+
+body, section, h1, h2, ul, p {
+  margin: 0;
+  padding: 0; }
+
+section {
+  min-height: 20%; }
+
+.header {
+  background-color: #c90; }
+
+.content {
+  background-color: #c7dac7; }
+
+.footer {
+  background-color: #696; }

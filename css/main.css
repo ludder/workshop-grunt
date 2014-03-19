@@ -1,0 +1,25 @@
+html {
+  height: 100%; }
+
+body {
+  background-color: #696;
+  font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+  height: 100%;
+  min-height: 100%; }
+
+body, section, h1, h2, ul, p {
+  margin: 0;
+  padding: 0; }
+
+section {
+  min-height: 20%; }
+
+.header {
+  background-color: #c90; }
+
+.content {
+  background-color: #c7dac7; }
+
+.footer {
+  background-color: #696;
+  color: #fff; }
