@@ -70,6 +70,6 @@ module.exports = function (grunt) {
     /* Registered tasks */
     grunt.registerTask('default', ['connect', 'watch']);
 
-    grunt.registerTask('serve', ['connect', 'watch']);
+    grunt.registerTask('serve', ['clean', 'sass', 'connect', 'watch']);
 
 };
