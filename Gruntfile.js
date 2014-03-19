@@ -57,6 +57,16 @@ module.exports = function (grunt) {
          */
         clean: {
             css: ['css']
+        },
+
+        /*
+            6. Clean
+         */
+        csslint: {
+            options: {
+                csslintrc: '.csslintrc',
+            },
+            src: 'css/**/*.css'
         }
 
     });
@@ -66,10 +76,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
 
     /* Registered tasks */
-    grunt.registerTask('default', ['connect', 'watch']);
+    grunt.registerTask('default', ['test']);
 
+    grunt.registerTask('test', ['clean', 'sass', 'csslint']);
     grunt.registerTask('serve', ['clean', 'sass', 'connect', 'watch']);
-
 };
