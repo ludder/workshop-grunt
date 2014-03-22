@@ -1,10 +1,10 @@
 {
     "adjoining-classes"          : false,
     "box-sizing"                 : false,
-    "box-model"                  : false,
+    "box-model"                  : true,
     "bulletproof-font-face"      : true,
     "compatible-vendor-prefixes" : false,
-    "display-property-grouping"  : false,
+    "display-property-grouping"  : true,
     "duplicate-background-images": false,
     "duplicate-properties"       : true,
     "empty-rules"                : true,
