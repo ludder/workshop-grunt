@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                     port: 9001,
                     hostname: '*',
                     base: '.',
-                    open: 'http://localhost:9001/index.html', // TODO does not work why?
+                    open: true,
                     // keepalive: true, // Should be disabled when 'watch' is connected
                     livereload: true
                 }
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         },
 
         /*
-            6. Clean
+            6. CSS Lint
          */
         csslint: {
             options: {
