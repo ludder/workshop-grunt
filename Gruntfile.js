@@ -84,7 +84,33 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc',
             },
             src: 'javascript/**/*.js' // without .js folders are counted too
-        }
+        },
+
+        /*
+            8. PhantomCSS
+         */
+        phantomcss: {
+            desktop: {
+                options: {
+                    screenshots: 'test/visual/desktop/',
+                    results: 'results/visual/desktop',
+                    viewportSize: [1024, 768]
+                },
+                src: [
+                    'test/visual/**.js'
+                ]
+            },
+            mobile: {
+                options: {
+                    screenshots: 'test/visual/mobile/',
+                    results: 'results/visual/mobile',
+                    viewportSize: [320, 480]
+                },
+                src: [
+                    'test/visual/**.js'
+                ]
+            }
+        },
 
     });
 
@@ -95,10 +121,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-phantomcss');
 
     /* Registered tasks */
     grunt.registerTask('default', ['test']);
 
-    grunt.registerTask('test', ['clean', 'sass', 'csslint', 'jshint']);
+    grunt.registerTask('test', ['clean', 'sass', 'csslint', 'jshint', 'phantomcss']);
     grunt.registerTask('serve', ['clean', 'sass', 'connect', 'watch']);
 };
