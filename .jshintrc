@@ -1,0 +1,12 @@
+{
+  "strict"   : true,
+  "curly"    : true,
+  "eqnull"   : true,
+  "eqeqeq"   : true,
+  "maxparams": 3,
+  "undef"    : true,
+  "globals"  : {
+    "document": true,
+    "jQuery": false
+  }
+}
