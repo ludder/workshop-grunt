@@ -1,7 +1,7 @@
 /*global module */
 module.exports = function (grunt) {
 
-    'use strict';
+    // 'use strict';
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -112,11 +112,24 @@ module.exports = function (grunt) {
             }
         },
 
+        copy: {
+            main: {
+                expand: true,
+                cwd: 'javascript/',
+                src: '**',
+                dest: 'dest/',
+                flatten: true,
+                filter: 'isFile',
+                mode:0777
+            },
+        },
+
     });
 
     /* Load tasks*/
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-sass');
