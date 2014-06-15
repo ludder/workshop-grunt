@@ -1,5 +1,5 @@
 /*global module */
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
     // 'use strict';
 
@@ -112,6 +112,11 @@ module.exports = function (grunt) {
             }
         },
 
+        /*
+            Not discussed during workshop
+            This example copies the entire "javascript" directory to
+            a new created folder "dest"
+        */
         copy: {
             main: {
                 expand: true,
@@ -120,7 +125,7 @@ module.exports = function (grunt) {
                 dest: 'dest/',
                 flatten: true,
                 filter: 'isFile',
-                mode:0777
+                // mode: 0777
             },
         },
 
@@ -137,8 +142,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-phantomcss');
 
     /* Registered tasks */
+    // The default task can be called from command line by just `grunt`.
+    // In this case it calls the next task, so it's the same as calling `grunt test`.
     grunt.registerTask('default', ['test']);
 
+    // Run `grunt test` to activate the tasks that run tests on your site
     grunt.registerTask('test', ['clean', 'sass', 'csslint', 'jshint', 'phantomcss']);
+
+    // Run `grunt serve` to start a local web server
     grunt.registerTask('serve', ['clean', 'sass', 'connect', 'watch']);
 };
