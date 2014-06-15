@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                     base: '.',
                     open: true,
                     // keepalive: true, // Should be disabled when 'watch' is connected
-                    livereload: true
+                    // livereload: true // Not needed when defined in watch task
                 }
             }
         },
@@ -30,6 +30,7 @@ module.exports = function(grunt) {
         watch: {
             options: {
                 livereload: true,
+                reload: true
             },
             html: {
                 files: ['**/*.html']
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
             /* Added in step 4. Sass */
             css: {
                 files: ['scss/**/*.scss'],
-                tasks: ['sass']
+                tasks: ['sass:development']
             },
             /* Added in step 7. JSHint */
             js: {
@@ -49,10 +50,20 @@ module.exports = function(grunt) {
             4. Sass
          */
         sass: {
-            options: {
-                sourcemap: true
+            development: {
+                options: {
+                    sourcemap: true
+                },
+                files: {
+                    'css/main.css': 'scss/main.scss'
+                }
             },
-            dist: {
+            // 'banner' and 'sourcemap' cannot run together
+            // run as `grunt sass:production`
+            production: {
+                options: {
+                    banner: '/*! <%= pkg.name %> v.<%= pkg.version %> by <%= pkg.author %> - <%= grunt.template.today("yyyy-mm-dd HH:MM") %> */\n',
+                },
                 files: {
                     'css/main.css': 'scss/main.scss'
                 }
@@ -147,8 +158,8 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['test']);
 
     // Run `grunt test` to activate the tasks that run tests on your site
-    grunt.registerTask('test', ['clean', 'sass', 'csslint', 'jshint', 'phantomcss']);
+    grunt.registerTask('test', ['clean', 'sass:development', 'csslint', 'jshint', 'phantomcss']);
 
     // Run `grunt serve` to start a local web server
-    grunt.registerTask('serve', ['clean', 'sass', 'connect', 'watch']);
+    grunt.registerTask('serve', ['clean', 'sass:development', 'connect', 'watch']);
 };
