@@ -4,6 +4,8 @@ More info: [https://fronteers.nl/workshops/grunt-voor-beginners-tom-greuter](htt
 
 This is an elaboration of the grunt plugins we discussed in the workshop.
 
+Run `npm update` followed by `grunt serve` to download the grunt modules and to start the web server.
+
 ## grunt-contrib-connect
 
 - Setup a webserver with livereload (do not forget to install your firefox and chrome livereload plugin). See [http://go.livereload.com/extensions](http://go.livereload.com/extensions).
